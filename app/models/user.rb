@@ -9,6 +9,6 @@ class User < ApplicationRecord
     private
 
     def verify
-      UserMailer.user_verify(self).deliver
+      UserMailer.welcome(self).deliver
     end
 end

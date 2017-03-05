@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'user/login', to: 'users#login', as: 'user_login'
   get 'user/verify/:id', to: 'users#verify', as: 'user_verify'
   get 'user/:user_id/review/new', to: 'reviews#new', as: 'new_user_review'
-  post 'user/:user_id/hotel/:hotel_id/review/create', to: 'reviews#create', as: 'create_user_review'
+  post 'hotel/:hotel_id/review/create', to: 'reviews#create', as: 'create_user_review'
   get 'hotels' , to: 'hotels#index', as: 'hotels'
   get 'hotels/:id' , to: 'hotels#show', as: 'hotel'
 end

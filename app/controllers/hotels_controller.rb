@@ -3,7 +3,7 @@ class HotelsController < ApplicationController
     @hotels = Hotel.all
   end
   def show
-    @user = User.find(9)
+    @user = current_user
     @hotel =  Hotel.includes([:services,:reviews]).find(params[:id])
   end
 end

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def login
     @user = User.where(email: params[:user][:email], password: params[:user][:password]).first()
-  puts @user
+  session[:current_user_id] = @user[:id]
+  puts "Session is in session"
     redirect_to hotels_path
 
   end
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     unless @user.verified
       @user.update(verified: true)
       if @user.save
-        render json: @user.to_json(except: [:password,:created_at,:updated_at,:verified])
+        redirect_to hotels_path
       else
         render json: @user.errors.messages
       end
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   def create
     @user  = User.create(user_params)
     if @user.save
-      render json: @user.to_json(except: [:password,:created_at,:updated_at,:verified])
+      redirect_to hotels_path
     else
       render json: @user.errors.messages
   end
