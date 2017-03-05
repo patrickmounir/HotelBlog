@@ -1,0 +1,29 @@
+<p>
+  <strong>Name:</strong>
+  <%= @hotel.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @hotel.location %>
+</p>
+<p>
+  <strong>Number:</strong>
+  <%= @hotel.number %>
+</p>
+<p>
+  <strong>Website:</strong>
+  <%= link_to @hotel.website %>
+</p>
+<ul>
+  <strong>Services:</strong>
+
+<% @hotel.services.each do |service| %>
+<li>
+  <strong><%= service.name %></strong>
+
+</li>
+<%end%>
+</ul>
+
+<%=link_to 'Back', hotels_path%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305103309) do
+ActiveRecord::Schema.define(version: 20170305113435) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "hotel_id"
