@@ -5,4 +5,10 @@ class User < ApplicationRecord
   validates :last_name, presence:true
   validates :email, presence:true, uniqueness:true
   validates :password, presence:true, length:{ in: 5..30}
+  after_create :verify
+    private
+
+    def verify
+      UserMailer.user_verify(self).deliver
+    end
 end

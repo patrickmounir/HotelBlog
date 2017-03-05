@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     @user  = User.create(user_params)
     if @user.save
-      render json: @user
+      render json: @user.to_json(except: [:password,:created_at,:updated_at,:verified])
     else
       render json: @user.errors.messages
   end
