@@ -5,16 +5,17 @@ class ReviewsController < ApplicationController
   end
   def create
     @user  = User.find(params[:user_id])
+    @hotel = Hotel.find(params[:hotel_id])
     @review = @user.reviews.create(review_params)
+    @hotel.reviews << @review
 
     if @review.save
-      render json: @user.to_json(except: [:password,:created_at,:updated_at,:verified])
+      render json: @review
     else
-      render json: @user.errors.messages
+      render json: @review.errors.messages
   end
 end
   def review_params
-    params.require(:review).permit(:message, :ratings)
-  end
+    params.require(:review).permit(:message, :rating)
   end
 end

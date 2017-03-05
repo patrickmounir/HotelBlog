@@ -1,0 +1,17 @@
+<%= form_for :review, url:create_user_review_path(@user,@hotel) do |f| %>
+
+  <p>
+    <%= f.label :message %><br>
+    <%= f.text_field :message %>
+  </p>
+
+  <p>
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
