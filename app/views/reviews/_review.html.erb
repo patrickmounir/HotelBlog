@@ -1,13 +1,22 @@
 
   <p>
-    <strong>Review:</strong>
-    <%= review.message %>
+    <strong>Reviewer:</strong>
+    <%= review.first_name %> <%= review.last_name %>
   </p>
+
+    <p>
+      <strong>Review:</strong>
+      <%= review.message %>
+    </p>
 
   <p>
     <strong>rating:</strong>
     <%= review.rating %>
   </p>
   <p>
-  
+    <strong>Created:</strong>
+    <%=time_ago_in_words review.created_at %>
+  </p>
+  <p>
+
 </p>
